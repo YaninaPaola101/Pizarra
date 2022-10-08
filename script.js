@@ -1,16 +1,41 @@
 const canvas = document.getElementById("comportamiento");
 const ctx = canvas.getContext("2d");
-//canvas.height = canvas.width;
-ctx.transform(1, 0, 0, -1, 0, canvas.height)
+var rect=canvas.getBoundingClientRect();
+var x=0, y=0,dibujando=false, color='red', grosor=3;
 
-const xArray = [50,60,70,80,90,100,110,120,130,140,150];
-const yArray = [7,8,8,9,9,9,10,11,14,14,15];
+function cambiarColor(c){
+    color=c;
+}
+function cambiarGrosor(g){
+    grosor=g;
+}
+canvas.addEventListener('mousedown',function(e){
+    x=e.clientX - rect.left;
+    y=e.clientY - rect.top;
+    dibujando=true;
+});
+canvas.addEventListener('mousemove',function(e){
+    if(dibujando===true){
+        dibujar(x,y,e.clientX - rect.left,e.clientY - rect.top);
+        x=e.clientX - rect.left;
+        y=e.clientY - rect.top;
+    }
+})
+canvas.addEventListener('mouseup',function(e){
+    if (dibujando===true){
+        dibujar(x,y,e.clientX - rect.left,e.clientY - rect.top);
+        x=0;
+        y=0;
+        dibujando=false
+    }
+})
 
-ctx.fillStyle = "black";
-for (let i = 0; i < xArray.length-1; i++) {
-  let x = xArray[i]*400/150;
-  let y = yArray[i]*400/15;
-  ctx.beginPath();
-  ctx.ellipse(x, y, 3, 3, 0, 0, Math.PI * 2);
-  ctx.fill();
+function dibujar(xi,yi,xf,yf){
+    ctx.beginPath();
+    ctx.strokeStyle=color;
+    ctx.lineWidth=grosor;
+    ctx.moveTo(xi,yi);
+    ctx.lineTo(xf,yf);
+    ctx.stroke();
+    ctx.closePath();
 }
