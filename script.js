@@ -1,7 +1,12 @@
 const canvas = document.getElementById("comportamiento");
 const ctx = canvas.getContext("2d");
 var rect=canvas.getBoundingClientRect();
-var x=0, y=0,dibujando=false, color='red', grosor=3;
+var x=0, y=0,dibujando=false, color='black', grosor=1;
+
+var limpiar = document.getElementById("limpiar");
+limpiar.addEventListener("click",function(){
+	canvas.width=canvas.width;
+})
 
 function cambiarColor(c){
     color=c;
