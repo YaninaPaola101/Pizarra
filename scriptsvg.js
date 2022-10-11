@@ -13,6 +13,7 @@ var bandera=false;
 var guardado="";
 limpiar.addEventListener("click",function(){
     document.getElementById("dibujos").innerHTML="";
+    guardado="";
 })
 
 function cambiarColor(c){
