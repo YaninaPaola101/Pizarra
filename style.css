@@ -5,11 +5,11 @@ body{
 }
 
 canvas{
-    border: 2px solid;
     background-color: white;
     margin: 10px;
 }
-.limpiar{
+
+#limpiar{
     width: 180px;
     height: 40px;
     border-radius: 20px;
@@ -17,7 +17,7 @@ canvas{
 }
 
 .margen{
-    margin: 17px;
+    margin: 19px;
 }
 
 .contenedor{
@@ -30,7 +30,6 @@ canvas{
     width: 50px;
     height: 50px;
 }
-
 .grosor button{
     background-image: url("img/lineagruesa.png");
     background-size: 100px 100px;
