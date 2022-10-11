@@ -9,8 +9,10 @@ var nElemento= 1;
 var rect=canvas.getBoundingClientRect();
 var x=0, y=0,dibujando=false, color='black', grosor=1;
 var limpiar = document.getElementById("limpiar");
+var bandera=false;
+var guardado="";
 limpiar.addEventListener("click",function(){
-	
+    document.getElementById("dibujos").innerHTML="";
 })
 
 function cambiarColor(c){
@@ -46,21 +48,38 @@ canvas.addEventListener('mousemove',function(e){
         y=e.clientY - rect.top;
         dibujar(x,y);
         console.log(elemento);
+        bandera=true;
     }
 })
 canvas.addEventListener('mouseup',function(e){
     if (dibujando===true){
         dibujar(e.clientX - rect.left,e.clientY - rect.top);
-        elemento += " \">"
-        var svg= document.getElementById("comportamiento");
-        svg.innerHTML += elemento;
+        //elemento += " \">"
+        //var svg= document.getElementById("comportamiento");
+        //var svg2=document.getElementById("comportamiento").innerHTML;
+        //console.log('svg ante ' + svg2);
+        //svg.innerHTML += elemento;
+        //var svg2=document.getElementById("comportamiento").innerHTML;
+        //console.log('svg despues ' + svg2);
 
         x=0;
         y=0;
         dibujando=false
         elemento = "<polyline id\"figura";
+        guardado = document.getElementById("dibujos").innerHTML;
     }
 })
 function dibujar(x,y){
-    elemento += " "  + x + "," + y;
+    if (bandera===true){
+        //var elemento2 = elemento.substring(0, elemento.length - 2);
+         elemento = elemento.substring(0, elemento.length - 2);;
+        console.log('elemto2' + elemento);
+    }
+    elemento += " "  + x + "," + y+ " \">";
+
+    var svg= document.getElementById("dibujos");
+        var svg2=document.getElementById("dibujos").innerHTML;
+        console.log('svg ante ' + svg2);
+        svg.innerHTML = guardado + elemento;
+        var svg2=document.getElementById("dibujos").innerHTML;
 }
