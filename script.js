@@ -1,7 +1,7 @@
 const canvas = document.getElementById("comportamiento");
 const ctx = canvas.getContext("2d");
 var rect=canvas.getBoundingClientRect();
-var x=0, y=0,dibujando=false, color='black', grosor=1;
+var x=0, y=0,dibujando=false, color='black', grosor=3;
 
 var limpiar = document.getElementById("limpiar");
 limpiar.addEventListener("click",function(){
@@ -9,7 +9,9 @@ limpiar.addEventListener("click",function(){
 })
 
 function cambiarColor(c){
+
     color=c;
+    console.log(color);
 }
 function cambiarGrosor(g){
     grosor=g;
@@ -28,7 +30,6 @@ canvas.addEventListener('mousemove',function(e){
 })
 canvas.addEventListener('mouseup',function(e){
     if (dibujando===true){
-        dibujar(x,y,e.clientX - rect.left,e.clientY - rect.top);
         x=0;
         y=0;
         dibujando=false
