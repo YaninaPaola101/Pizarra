@@ -1,5 +1,5 @@
 const canvas = document.getElementById("comportamiento");
-var elemento = "<polyline id\"figura";
+var elemento = "<polyline id=\"figura";
 var nElemento= 1;
 var rect=canvas.getBoundingClientRect();
 var x=0, y=0,dibujando=false, color='black', grosor=3;
@@ -20,21 +20,16 @@ function cambiarGrosor(g){
 function asignarNumero(){
     elemento +=  nElemento + "\"";
     nElemento ++;
-    
 }
 function asignarEstilo(){
     elemento += " style=\"fill:none;stroke:" + color+ ";stroke-width:" + grosor + "\"";
 }
-
-
-
 canvas.addEventListener('mousedown',function(e){
     x=e.clientX - rect.left;
     y=e.clientY - rect.top;
     asignarNumero();
     asignarEstilo();
-    elemento +=  " points=\""+ x + "," + y;
-    
+    elemento +=  " points=\""+ x + "," + y; 
     dibujando=true;
 });
 canvas.addEventListener('mousemove',function(e){
@@ -50,7 +45,7 @@ canvas.addEventListener('mouseup',function(e){
         x=0;
         y=0;
         dibujando=false
-        elemento = "<polyline id\"figura";
+        elemento = "<polyline id=\"figura";
         guardado = document.getElementById("dibujos").innerHTML;
     }
 })
