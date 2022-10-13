@@ -29,7 +29,7 @@
                     <button class="w3-blue" onclick="cambiarColor('blue')"></button>
                     <button class="w3-orange" onclick="cambiarColor('orange')"></button>
                     <button class="w3-black" onclick="cambiarColor('black')"></button>
-                    <input type="color">
+                    <input type="color" id= "paleta" oninput="cambiarColor(this.value);">
                 </div>
     
                 <div class="grosor">
@@ -37,6 +37,7 @@
                     <button class="w3-"onclick="cambiarGrosor(5)"></button>
                     <button class="w3-" style="background-size: 100px 60px;" onclick="cambiarGrosor(3)"></button>
                     <button class="w3-" style="background-size: 100px 40px;"onclick="cambiarGrosor(1)"></button>
+                    <input type="range" id= "barra" oninput="cambiarGrosor(this.value);" min="1" max="8" value="3"> 
                 </div>
                 <button id="limpiar">LIMPIAR</button>  
             </div>   
