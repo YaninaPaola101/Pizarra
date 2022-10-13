@@ -16,6 +16,22 @@ canvas{
     background-color: bisque;
 }
 
+#borrador{
+    width: 180px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: rgb(168, 238, 226);
+    margin: 5px;
+}
+
+
+#paleta{
+    margin: 5px;
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+}
+
 .margen{
     margin: 19px;
 }
